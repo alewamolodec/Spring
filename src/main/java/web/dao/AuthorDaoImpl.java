@@ -1,5 +1,8 @@
 package web.dao;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import web.model.Authors;
 import org.springframework.stereotype.Repository;
 
@@ -9,10 +12,10 @@ import java.util.List;
 
 @Repository
 public class AuthorDaoImpl implements AuthorDao {
-    @PersistenceContext
-    private EntityManager entityManager;
-
-   /* private SessionFactory ;
+//    @PersistenceContext
+//    private EntityManager entityManager;
+    @Autowired
+    private SessionFactory sessionFactory;
 
 
     @Override
@@ -29,7 +32,7 @@ public class AuthorDaoImpl implements AuthorDao {
         }
     }
 
-    @Override
+  /*  @Override
     public List<Authors> getAll() {
         Session session = sessionFactory.openSession();
         try {
@@ -86,14 +89,14 @@ public class AuthorDaoImpl implements AuthorDao {
 
     }*/
 
-    @Override
-    public List<Authors> getAllAuthors() {
-        return entityManager.createQuery("from Authors").getResultList();
+//    @Override
+//    public List<Authors> getAllAuthors() {
+//        return entityManager.createQuery("from Authors").getResultList();
+//    }
+//
+//    @Override
+//    public Authors getById(int id) {
+//        Authors authors = (Authors) entityManager.createQuery("from Authors where id=id").getSingleResult();
+//        return authors;
     }
 
-    @Override
-    public Authors getByGenre(int id) {
-        Authors authors = (Authors) entityManager.createQuery("from Authors where id=2").getSingleResult();
-        return authors;
-    }
-}

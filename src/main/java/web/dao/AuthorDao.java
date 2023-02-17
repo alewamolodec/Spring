@@ -5,6 +5,6 @@ import web.model.Authors;
 import java.util.List;
 
 public interface AuthorDao {
-    List<Authors> getAllAuthors();
-    Authors getByGenre(int id);
+//    List<Authors> getAllAuthors();
+    Authors getById(int id);
 }

@@ -13,16 +13,17 @@ import web.service.AuthorServiceImpl;
 
 import java.util.List;
 
-@RestController
+@Controller
+@RequestMapping(value = "/authors")
 public class LibraryController {
 
     @Autowired
     private AuthorService authorService;
 
 
-    @GetMapping(value = "/authors")
-    public List<Authors> getById(int id){
-        return authorService.getAllAuthors();
+    @GetMapping(value = "/a")
+    public String getById(){
+        return authorService.getAuthorById(2).toString();
     }
 //    @RequestMapping(value = "/", method = RequestMethod.GET)
 //    public ModelAndView allAuthors() {

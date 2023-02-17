@@ -10,12 +10,10 @@ import java.util.List;
 import java.util.Optional;
 @Service
 public class AuthorServiceImpl implements AuthorService {
-
-    private AuthorDao authorDao;
     @Autowired
-    public void setAuthorDao(AuthorDao authorDao) {
-        this.authorDao = authorDao;
-    }
+    private AuthorDao authorDao;
+
+
     //    @Override
 //    public Authors getById(int i) {
 ////        try{
@@ -39,13 +37,13 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public Authors getAuthorById(int i) {
-        return null;
+        return authorDao.getById(i);
     }
 
-    @Override
-    public List<Authors> getAllAuthors() {
-        return Optional.ofNullable(authorDao.getAllAuthors()).orElse(new ArrayList<>());
-    }
+//    @Override
+//    public List<Authors> getAllAuthors() {
+//        return Optional.ofNullable(authorDao.getAllAuthors()).orElse(new ArrayList<>());
+//    }
 
     @Override
     public void addAuthor(Authors a) {
